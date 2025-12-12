@@ -19,14 +19,8 @@ jobs:
         with:
           tofu_version_file: .opentofu-version
 
-      - name: OpenTofu Init
-        id: init
-        run: tofu --version
+      - run: tofu --version
 
-      - name: OpenTofu Init
-        id: init
-        run: tofu init
+      - run: tofu init --upgrade
 
-      - name: OpenTofu Plan
-        id: plan
-        run: tofu plan -no-color
+      - run: tofu plan -no-color
