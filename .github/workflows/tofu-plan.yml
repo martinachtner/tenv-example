@@ -1,0 +1,32 @@
+name: OpenTofu Plan
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tofu-plan:
+    name: Run OpenTofu Plan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup OpenTofu
+        uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version_file: .opentofu-version
+
+      - name: OpenTofu Init
+        id: init
+        run: tofu --version
+
+      - name: OpenTofu Init
+        id: init
+        run: tofu init
+
+      - name: OpenTofu Plan
+        id: plan
+        run: tofu plan -no-color
