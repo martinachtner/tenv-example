@@ -10,3 +10,5 @@ Verify that tenv is installed correctly by running:
 ```bash
 tenv --version
 ```
+
+You can now control the version used for this project by setting it in [.opentofu-version](.opentofu-version).
